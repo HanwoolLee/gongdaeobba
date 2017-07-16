@@ -1,6 +1,22 @@
 package com.gongdaeobba.dao;
 
 public class mainboard {
+	/*
+			-- 메인보드 속성
+			-- 작성자: 이한울		-- 날짜: 2017-07-16
+			company:					제조회사
+			socket:						소켓
+			chipsetCompany		칩셋제조사
+			chipsetCpu				칩셋cpu
+			memoryCase			메모리종류
+			memorySpeed			메모리속도
+			memoryPs					
+			pciExpress3_0_x_16
+			pciExpress_x_16
+			pciExpress3_0_x_8
+			pciExpress_x8
+
+	 */
 	public String company;
 	public String socket;
 	public String chipsetCompany;
@@ -12,7 +28,21 @@ public class mainboard {
 	public int pciExpress_x_16;
 	public int pciExpress3_0_x_8;
 	public int pciExpress_x8;
+	public int power;
+	public int size;
 	
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	public int getPower() {
+		return power;
+	}
+	public void setPower(int power) {
+		this.power = power;
+	}
 	public String getCompany() {
 		return company;
 	}

@@ -1,11 +1,22 @@
 package com.gongdaeobba.dao;
 
-public class cpu_intel {
+public class cpu {
 	public String company;
 	public String socket;
 	public String chipset;
 	public String supprot_ddr;
+	public int coreCnt;
+	public int operationSpeed;
+	public int operationSystem; 
+	public int power;
 	
+	
+	public int getPower() {
+		return power;
+	}
+	public void setPower(int power) {
+		this.power = power;
+	}
 	public String getCompany() {
 		return company;
 	}
