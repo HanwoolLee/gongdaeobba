@@ -1,9 +1,13 @@
 package com.gongdaeobba.test;
 
+import java.util.ArrayList;
+
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+
 
 public class dbConnectionTest {
 	private MongoTemplate mongoTemplate;
@@ -17,46 +21,14 @@ public class dbConnectionTest {
 	
 	 public static void main(String[] args) {
 		 dbConnectionTest mongoTest = new dbConnectionTest();
-		 System.out.println(mongoTest.mongoTemplate);
-		 mongoTest.insertTestData();
+		 mongoTest.findData();
+		 
 	 }
-	private void insertTestData () {
-		MongoTestVO testVO = new MongoTestVO();
-        testVO.setName("둘리!!");
-        testVO.setAddress("고길동 집 1억년전 어딘가...");
-
-        mongoTemplate.insert(testVO, "book");
-	}
-	
-	private class MongoTestVO {
-		@Id
-		private String id;
-		
-		private String name;
-		private String address;
-		
-		 public String getId() {
-	            return id;
-	        }
-	 
-	        public void setId(String id) {
-	            this.id = id;
-	        }
-	 
-	        public String getName() {
-	        	return name;
-	        }
-	 
-	        public void setName(String name) {
-	            this.name = name;
-	        }
-	 
-	        public String getAddress() {
-	            return address;
-	        }
-	 
-	        public void setAddress(String address) {
-	            this.address = address;
-	        }
+	public void findData () {
+		Query query = Query.query(Criteria.where("BRAND").is("INTEL"));
+		ArrayList<Object> ret  = (ArrayList<Object>) mongoTemplate.find(query, Object.class, "GDOB_CPU_LIST");
+		for (int i=0;  i < ret.size(); i++) {
+			System.out.println(ret.get(i));
+		}
 	}
 }

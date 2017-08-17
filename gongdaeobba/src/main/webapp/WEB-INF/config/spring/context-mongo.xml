@@ -21,8 +21,4 @@
 		<constructor-arg ref="mongo"/>
 		<constructor-arg name="databaseName" value="gongdaeobba"/>
 	</bean>
-	
-	 <!-- <bean id = "mongoDAO" class="com.gongdaeobba.dao.MongoDAO">
-		<property name="mongoTemplate" ref="mongoTemplate"></property>
-	</bean>  -->
 </beans>
